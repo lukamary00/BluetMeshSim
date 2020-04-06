@@ -1,2 +1,2 @@
-##Bluetooth mesh simulation \n
+##Bluetooth mesh simulation 
 Made by AGH Computer Science 😎
