@@ -1,2 +1,1 @@
-##Bluetooth mesh simulation
-Made by AGH Computer Science 😎
+😎Bluetooth mesh simulation😎
