@@ -1,1 +1,1 @@
-# SDSZ
+# Bluetooth mesh simulation
