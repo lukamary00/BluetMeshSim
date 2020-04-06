@@ -1,0 +1,14 @@
+#:kivy 1.11.1
+
+<WelcomePanel@RelativeLayout>:
+    Label:
+        pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        text: 'Welcome to application! \n To start simulation upload map. \nMap will appear on tab node configuration'
+        halign: 'center'
+        font_size: 18
+    Button:
+        size_hint: .3, .1
+        pos_hint: {'center_x': 0.5, 'center_y': 0.4}
+        text: 'Upload map'
+        font_size: 18
+        on_release: app.open_chooser()
