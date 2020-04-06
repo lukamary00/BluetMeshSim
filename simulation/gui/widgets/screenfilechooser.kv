@@ -1,0 +1,25 @@
+#:kivy 1.11.1
+<ScreenFileChooser>:
+    file_chooser: fc 
+    BoxLayout:
+        orientation: "horizontal"
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_x: 0.3
+            Label:
+                size_hint_y: 0.2
+                text: "Select a map"
+            Button:
+                size_hint_y: 0.2
+                text: "Upload map"
+                on_press: root.upload_map(fc.selection)
+            Button:
+                size_hint_y: 0.2
+                text: "Cancell"
+                on_press: root.close() 
+            # Tmp solution, to force button to be of normal size
+            Label:
+        FileChooserIconView:
+            id: fc
+        
+            

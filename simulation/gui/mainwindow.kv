@@ -1,0 +1,34 @@
+#:kivy 1.11.1
+#:include simulation/gui/configuration_windows/map_config.kv
+#:include simulation/gui/configuration_windows/environment_config.kv
+#:include simulation/gui/widgets/welcome_panel.kv
+<MainWindow>:
+    tab_panel: tab_panel
+    config_panel: config_panel
+    map_area: map_area
+    BoxLayout:
+        orientation: 'horizontal'
+        cols: 2
+        # TODO dynamic config change
+        MapConfig:
+            id: config_panel
+        TabbedPanel:
+            size_hint: (.7, 1)
+            id: tab_panel
+            do_default_tab: False
+            tab_width: self.width / len(self.tab_list)
+            TabbedPanelItem:
+                text: 'Surface map'
+                WelcomePanel:
+            TabbedPanelItem:
+                text: 'Environment config'
+                Label:
+                    text: 'Here you will be able to controll your environment variables'
+            TabbedPanelItem:
+                text: 'Nodes configuration'
+                Label: 
+                    id: map_area
+                    text: 'Here you will be able to call actions on specific nodes'
+
+  
+
