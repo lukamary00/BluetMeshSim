@@ -1,0 +1,56 @@
+#:kivy 1.11.1
+
+<ConfPopup>:
+    size_hint: 0.5, 0.5
+    separator_color: 0.9, 0.9, 0.9, 1
+    title: "Configure your device"
+    box_for_id: box_for_id
+    grid: grid
+    publishing_id: publishing_id
+    role: role
+    BoxLayout:
+        orientation: 'vertical'
+        GridLayout:
+            id: grid
+            cols: 2
+            Label:
+                markup: True
+                size_hint_y: None
+                height: dp(30)
+                text: "Subsribed id"
+            Label:
+                markup: True
+                size_hint_y: None
+                height: dp(30)
+                text: "Publishing id"
+            ScrollView:
+                BoxLayout:
+                    id: box_for_id
+                    orientation: 'vertical'
+                    size_hint_y: None
+                    height: self.minimum_height
+            BoxLayout:
+                orientation:'vertical'
+                TextInput:
+                    id: publishing_id
+                    size_hint_y: None
+                    height: dp(45)
+                    multiline: False
+                    hint_text: 'Publishing id:'
+                Label:
+        BoxLayout:
+            size_hint_y: .25
+            orientation:'horizontal'
+            Spinner:
+                id: role
+                values: ["", "Relay"]
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, 0.25
+            Button:
+                text: 'Cancel'
+                on_release: root.dismiss()
+            Button:
+                text: 'Save'
+                on_press: root.add_new_elem()

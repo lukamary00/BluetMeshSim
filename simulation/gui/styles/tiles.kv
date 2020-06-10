@@ -1,0 +1,24 @@
+#:kivy 1.11.1
+# in future custom logic could be added
+<Slot>:
+    background_color: .9,.9,.9,.5
+    canvas.before:
+        Color:
+            rgba: self.background_color
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    text: "Slot"
+
+<Wall>:
+    canvas:
+        Color:
+            rgb: .28, .28, .28
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    text: ""
+
+<Empty>:
+    text: " "
+

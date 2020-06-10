@@ -1,0 +1,12 @@
+#:kivy 1.11.1
+
+# currently only shows information about environment variables
+<RoomConfigWindow>:
+    orientation: 'vertical'
+    temperature: 0
+    time_string: ""
+    Label:
+        size_hint_y: None
+        height: dp(75)
+        markup: True
+        text: "[size=20][b]Temperature is {0:.2f} degrees\nTime: {1}[/b] [/size]".format(root.temperature, root.time_string)

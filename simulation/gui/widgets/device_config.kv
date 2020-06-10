@@ -1,0 +1,33 @@
+#:kivy 1.11.1
+
+<DeviceConfigWindow>:
+    container: myBox
+    BoxLayout:
+        id: myBox
+        orientation: 'vertical'
+        size_hint_y: None
+        height: self.minimum_height
+
+<DeviceRow>:
+    devices: devices
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: dp(75)
+    open_conf: open_conf
+    Spinner:
+        id: devices
+        size_hint_y: None
+        text: 'Devices'
+        height: dp(75)
+        on_text: root.on_spinner_select(self.text)
+    Button:
+        id: open_conf
+        size_hint_y: None
+        height: dp(75)
+        text: "Configure"
+        on_press: root.open_config()
+    Button:
+        size_hint_y: None
+        height: dp(75)
+        text: "Delete"
+        on_press: root.remove()

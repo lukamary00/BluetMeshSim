@@ -1,0 +1,54 @@
+#:kivy 1.11.1
+
+<FileChooser>:
+    map_spinner: map_spinner
+
+    title: 'Choose map'
+    size_hint: 0.5, 0.5
+    separator_color: 0.9, 0.9, 0.9, 1
+    title: "Select map"
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Select map from dropdown.'
+        Label:
+        Spinner:
+            id: map_spinner
+        Label:
+        BoxLayout:
+            orientation: 'horizontal'
+            Button:
+                text: 'Upload'
+                on_press: root.upload_file()
+            Button:
+                text: 'Cancel'
+                on_release: root.dismiss()
+            
+<FrameInfo>:
+    title: 'Frame description'
+    size_hint: 0.5, 0.5
+    separator_color: 0.9, 0.9, 0.9, 1
+    title: "Frame"
+    topic: ""
+    ttl: ""
+    message: ""
+    type_: ""
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            markup: True
+            text: "[size=20][b]Topic:    {0}[/b][/size]".format(root.topic)
+        Label:  
+            markup: True
+            text: "[size=20][b]Meesage:    {0}[/b][/size]".format(root.message)
+        Label:
+            markup: True
+            text: "[size=20][b]TTL:    {0}[/b][/size]".format(root.ttl)
+        Label:
+            markup: True
+            text: "[size=20][b]Type:    {0}[/b][/size]".format(root.type_)
+        BoxLayout:
+            orientation: 'horizontal'
+            Button:
+                text: 'Ok'
+                on_release: root.dismiss()

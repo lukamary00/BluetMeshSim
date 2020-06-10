@@ -1,0 +1,85 @@
+#:kivy 1.11.1
+#:include simulation/gui/widgets/device_config.kv
+#:include simulation/gui/widgets/room_config.kv
+#:include simulation/gui/widgets/file_chooser.kv
+#:include simulation/gui/styles/tiles.kv
+#:include simulation/gui/widgets/popup.kv
+
+
+<MainWindow>:
+    orientation: 'horizontal'
+    size: root.size
+    config_panel: config_panel
+    map_area: map_area
+    open_room: open_room
+    open_device: open_device
+    frame_canvas: frame_canvas
+    canvas.before:
+        Color:
+            rgba: 0.05, 0.05, 0.1, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    BoxLayout:
+        id: config_window
+        size_hint_x: .3
+        orientation: 'vertical'
+        Button:
+            size_hint_y: None
+            height: dp(75)
+            text: 'Select map'
+            on_release: root.upload_map()
+        BoxLayout:
+            id: config_panel
+            orientation: "vertical"
+        BoxLayout:
+            size_hint_y: None
+            height: dp(75)
+            orientation: "horizontal"
+            Button:
+                id: open_room
+                text_size : self.width, None
+                halign: 'center'
+                text: "Open room configuration"
+                on_press: root._open_room_config()
+                disabled: True
+            Button:
+                id: open_device
+                text_size : self.width, None
+                halign: 'center'
+                text: "Open device configuration"
+                on_press: root._open_device_config()
+                disabled: True
+    FloatLayout:
+        GridLayout:
+            pos: (config_window.width, 0)
+            opacity: 0.8
+            cols: 1
+            id: map_area
+            Label:
+                halign: 'center'
+                valign: 'middle'
+                markup: True
+                text: "[size=30][b]Welcome in Smart Home simulation!\n To start using application, please select a map[/b][/size]"
+        FloatLayout:
+            id: frame_canvas
+            pos: (config_window.width, 0)
+
+
+
+<FrameContainer>:
+    color: 'white'
+    Button:
+        size: (40, 30)
+        pos: root.pos
+        on_press: root.show_frame()
+        Image:
+            source: 'images/mail_{0}.png'.format(root.color)
+            y: self.parent.y + self.parent.height - self.parent.size[1]
+            x: self.parent.x
+            size: self.parent.size
+            allow_stretch: True
+
+
+
+

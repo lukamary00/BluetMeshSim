@@ -1,0 +1,26 @@
+ #:kivy 1.11.1
+
+# <Frame>:
+#     size: 50, 50
+#     topic_label: topic
+#     canvas.before:
+#         Color:
+#             rgba: (.9,.9,.9,.5)
+#         Rectangle:
+#             pos: self.pos
+#             size: self.size
+#     Label:
+#         id: topic
+#         text: ""
+<Frame>:
+    size: 50, 50 
+    topic_label: l
+    canvas.before:
+        Ellipse:
+            pos: self.pos
+            size: self.size   
+    Label:
+        id: l
+        pos: self.pos
+        text: "ball"
+    

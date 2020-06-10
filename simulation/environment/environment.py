@@ -1,4 +1,5 @@
-from simulation.environment.environment_variables import EnvironmentVariable
+import datetime as dt
+import time
 
 
 class Environment:
@@ -7,14 +8,31 @@ class Environment:
 
     Provide interface to interaction between nodes and elements.
     """
+    temperature = 30
+    humidity = 0
+    illuminance = 0
+    heaters = []
+    time = dt.datetime.now().time()
+    delta = dt.timedelta(minutes=1)
 
-    def __init__(self):
-        """Bake all exising variables."""
-        self.bake()
+    @staticmethod
+    def heat():
+        """
+        Affect temperature and humidity.
+        """
+        # if zero heaters, than temperature will decrease
+        coeficient = len(Environment.heaters) - 1
+        Environment.temperature += coeficient * 0.1
 
-    def bake(self):
-        """Create all implemented environment variables."""
-        self.variables = {}
-        for env_variable, var_creator in EnvironmentVariable.existing_variables.items():
-            self.variables[env_variable] = var_creator()
-        
+    @staticmethod
+    def turn_light():
+        """
+        Affect illuminance
+        """
+        pass
+
+    @staticmethod
+    def set_time():
+        Environment.time = (dt.datetime.combine(dt.date(1, 1, 1), Environment.time) + Environment.delta).time()
+        #Environment.time = (datetime.combine(datetime.date(1, 1, 1), Environment.time) + delta).time()
+        #Environment.time += timedelta(minutes=1)
